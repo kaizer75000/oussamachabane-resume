@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auzi Chabane - Motion Graphics Designer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: white;
+            padding: 40px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .contact {
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 50px 60px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 50px;
+        }
+        
+        .main-content {
+            flex: 1;
+        }
+        
+        .sidebar {
+            background: #f5f5f5;
+            padding: 30px;
+            border-radius: 15px;
+            height: fit-content;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h3 {
+            color: #2c2c2c;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #666, #2c2c2c);
+            border-radius: 2px;
+        }
+        
+        .job {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #fff;
+            border-radius: 10px;
+            border-left: 4px solid #666;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .job:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .job h4 {
+            color: #2c2c2c;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .job .company {
+            color: #666;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .job .date {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .job p {
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .sidebar h3 {
+            color: #2c2c2c;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .sidebar h3::after {
+            width: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .skills {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .skill {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-align: center;
+            color: #2c2c2c;
+            font-weight: 500;
+            border: 2px solid #666;
+            transition: all 0.3s ease;
+        }
+        
+        .skill:hover {
+            background: #666;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .languages {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .language {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            text-align: center;
+            color: #2c2c2c;
+            font-weight: 500;
+            border: 2px solid #999;
+            transition: all 0.3s ease;
+        }
+        
+        .language:hover {
+            background: #999;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .education {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .education-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #999;
+            transition: transform 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .education-item h4 {
+            color: #2c2c2c;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .education-item .date {
+            color: #999;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px;
+            }
+            
+            .header {
+                padding: 30px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .job:hover {
+                transform: none;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            }
+            
+            .skill:hover, .language:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <h1>Oussama Chabane</h1>
+            <h2>Motion Graphics Designer</h2>
+            <div class="contact">kaizaro333@gmail.com</div>
+        </div>
+        
+        <div class="content">
+            <div class="main-content">
+                <div class="section">
+                    <h3>Experience</h3>
+                    
+                    <div class="job">
+                        <h4>Motion Designer/Video Editor</h4>
+                        <div class="company">Thuraya, Algiers</div>
+                        <div class="date">Aug 2024 / Dec 2024</div>
+                        <p>I specialized in producing high-quality VFX content and motion graphics that enhanced the company's visual communications and marketing materials.</p>
+                    </div>
+                    
+                    <div class="job">
+                        <h4>Motion Designer/Video Editor</h4>
+                        <div class="company">QOVES</div>
+                        <div class="date">Mar 2024 / Aug 2024</div>
+                        <p>In my role, I was responsible for producing motion graphics informative videos short form videos according to the script to be posted on youtube and social media platforms.</p>
+                    </div>
+                    
+                    <div class="job">
+                        <h4>Motion Designer/Video Editor</h4>
+                        <div class="company">INRETE, Italy</div>
+                        <div class="date">Dec 2023 / Mar 2024</div>
+                        <p>In my role, I was responsible for producing motion graphics explainer videos for the company's LinkedIn page.</p>
+                    </div>
+                    
+                    <div class="job">
+                        <h4>Motion Designer/Graphic Designer</h4>
+                        <div class="company">Beauty School, UAE, Dubai</div>
+                        <div class="date">Apr 2023 / Dec 2023</div>
+                        <p>In my role, I was responsible for producing captivating short-form videos and promotional motion graphics for the company. I created social media posts aligned with the company's branding and worked directly with plastic surgeons to measure clients' facial ratios for beauty assessments using Photoshop and other measurement tools. Additionally, I generated facial morphs to provide clients with accurate predictions of post-surgery outcomes and contributed to the design of the company's website.</p>
+                    </div>
+                    
+                    <div class="job">
+                        <h4>Motion Designer/Video Editor</h4>
+                        <div class="company">Lucé Media, Dallas, TX</div>
+                        <div class="date">Feb 2021 / Mar 2023</div>
+                        <div class="company" style="margin-bottom: 15px;">Tebessa, Algeria</div>
+                        <p>A seasoned Motion Designer/Video Editor with a passion for animation and visual effects I've had the privilege of working with various marketing agencies, where I specialized in logo animations and motion graphics for e-commerce brands, I'm proficient in software like Adobe After Effects, Premiere Pro, Illustrator, Photoshop, and I'm always eager to learn and adapt to new tools and techniques, I have 6 years of experience in creating dynamic visuals that not only enhance brand identity but also elevate the overall customer experience.</p>
+                        <p style="margin-top: 15px;">I had the role of editing and assembling final visual/audio material, Trimming footage segments and putting together the sequence of the video and Input music, dialogues, graphics, and effects. creating compelling and visually interesting videos, also short form videos for social media, along with motion graphics according to client's standards and branding guidelines.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div class="skills">
+                        <div class="skill">Motion Design</div>
+                        <div class="skill">Graphic Design</div>
+                        <div class="skill">Video Editing</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div class="languages">
+                        <div class="language">English</div>
+                        <div class="language">Arabic</div>
+                        <div class="language">French</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Education</h3>
+                    <div class="education">
+                        <div class="education-item">
+                            <h4>School of Motion</h4>
+                            <div class="date">2018-2020</div>
+                        </div>
+                        <div class="education-item">
+                            <h4>Self Taught</h4>
+                            <div class="date">2018-2022</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
